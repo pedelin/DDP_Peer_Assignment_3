@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Explore Datasets</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Explore Datasets">
+  <meta name="author" content="Petter Delin">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Explore Datasets</h1>
+    <h2>Explore the datasets in the dataset package in R</h2>
+    <p>Petter Delin<br/>Final Peer Assignment in DDP.</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+.title-slide {
+  background-color: #FFFFFF; /* #EDE0CF; ; #CA9F9D*/
+}
+</style>
+
+<!-- Limit image width and height -->
+
+<style type='text/css'>
+img {
+    max-height: 560px;
+    max-width: 964px;
+}
+</style>
+
+<h2>Introduction - Explore Datasets</h2>
+
+<p>This application makes the exploration of the built in datasets in the R base datasets package an easy an enyojable task. You don&#39;t need to load the data or even plot it. Everthing is made for you and all you have to do is to chose a dataset and what to plot on the x- and y-axis respectively.</p>
+
+<p>Three steps is all it takes:</p>
+
+<ol>
+<li>Chose dataset</li>
+<li>Chose what to be on the x-axis</li>
+<li>Chose what to be on the y-axis</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Example mtcarts - Explore Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To show some example from the &quot;Explore Datasets&quot; application below the &quot;mtcars&quot; dataset is used to plot disp against mpg</p>
+
+<p><img src="Figures/Figure1.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Example airquality - Explore Dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To show some example from the &quot;Explore Datasets&quot; application below the &quot;airquality&quot; dataset is used to plot Ozone against Wind</p>
+
+<p><img src="Figures/Figure2.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Data processing / Calculations - Explore Datasets</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>All the datasets in the Datasets package are not dataframes. Since this is the case all dataset that aren&#39;t data frames are removed prior to creating the application. 60 of the 104 datasets are therefore removed. The code for this operation is shown below:</p>
+
+<pre><code class="r">datalist &lt;- ls(&quot;package:datasets&quot;)
+DLindex &lt;- rep(FALSE,length(datalist))
+for(i in 1:length(datalist)){
+        if(is.data.frame(eval(parse(text = datalist[i]))) == TRUE){
+                DLindex[i] &lt;- TRUE
+        }
+}
+datalist &lt;- datalist[DLindex]
+c(length(ls(&quot;package:datasets&quot;)),length(datalist))
+</code></pre>
+
+<pre><code>## [1] 104  44
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Example mtcarts - Explore Dataset'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Example airquality - Explore Dataset'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Data processing / Calculations - Explore Datasets'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
